@@ -3242,8 +3242,11 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
-.row > * {
-  grid-column: span 12;
+.row.autoflow {
+  grid-template-columns: unset;
+  grid-auto-flow: column;
+  max-width: 100%;
+  overflow: auto;
 }
 
 .col-1 {
