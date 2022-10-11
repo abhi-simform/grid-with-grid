@@ -159,8 +159,11 @@ $grid-size: 12 !default;
 .row {
   display: grid;
   grid-template-columns: repeat($grid-size, 1fr);
-  & > * {
-    grid-column: span $grid-size;
+  &.autoflow {
+    grid-template-columns: unset;
+    grid-auto-flow: column;
+    max-width: 100%;
+    overflow: auto;
   }
 }
 
