@@ -1,0 +1,227 @@
+@use 'sass:math';
+
+@function rem($value) {
+  @return #{math.div($value, 16)}rem;
+}
+
+$breakpoints-up: (
+  'sm': '36rem',
+  'md': '48rem',
+  'lg': '62rem',
+  'xl': '75rem',
+  'xxl': '85rem',
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$spaces: (
+  0: '0',
+  1: '0.25rem',
+  2: '0.5rem',
+  3: '0.75rem',
+  4: '1rem',
+  5: '1.25rem',
+  6: '1.5rem',
+  7: '1.75rem',
+  8: '2rem',
+  9: '3rem',
+  10: '4rem',
+);
+
+@each $space-name, $space-size in $spaces {
+  .m-#{$space-name} {
+    margin: #{$space-size};
+  }
+  .mx-#{$space-name} {
+    margin-left: #{$space-size};
+    margin-right: #{$space-size};
+  }
+  .my-#{$space-name} {
+    margin-top: #{$space-size};
+    margin-bottom: #{$space-size};
+  }
+  .mt-#{$space-name} {
+    margin-top: #{$space-size};
+  }
+  .mr-#{$space-name} {
+    margin-right: #{$space-size};
+  }
+  .mb-#{$space-name} {
+    margin-bottom: #{$space-size};
+  }
+  .ml-#{$space-name} {
+    margin-left: #{$space-size};
+  }
+  .p-#{$space-name} {
+    padding: #{$space-size};
+  }
+  .px-#{$space-name} {
+    padding-left: #{$space-size};
+    padding-right: #{$space-size};
+  }
+  .py-#{$space-name} {
+    padding-top: #{$space-size};
+    padding-bottom: #{$space-size};
+  }
+  .pt-#{$space-name} {
+    padding-top: #{$space-size};
+  }
+  .pr-#{$space-name} {
+    padding-right: #{$space-size};
+  }
+  .pb-#{$space-name} {
+    padding-bottom: #{$space-size};
+  }
+  .pl-#{$space-name} {
+    padding-left: #{$space-size};
+  }
+}
+
+@each $name, $breakpoint-size in $breakpoints-up {
+  @include breakpoint($name) {
+    @each $space-name, $space-size in $spaces {
+      .m-#{$name}-#{$space-name} {
+        margin: #{$space-size};
+      }
+      .mx-#{$name}-#{$space-name} {
+        margin-left: #{$space-size};
+        margin-right: #{$space-size};
+      }
+      .my-#{$name}-#{$space-name} {
+        margin-top: #{$space-size};
+        margin-bottom: #{$space-size};
+      }
+      .mt-#{$name}-#{$space-name} {
+        margin-top: #{$space-size};
+      }
+      .mr-#{$name}-#{$space-name} {
+        margin-right: #{$space-size};
+      }
+      .mb-#{$name}-#{$space-name} {
+        margin-bottom: #{$space-size};
+      }
+      .ml-#{$name}-#{$space-name} {
+        margin-left: #{$space-size};
+      }
+      .p-#{$name}-#{$space-name} {
+        padding: #{$space-size};
+      }
+      .px-#{$name}-#{$space-name} {
+        padding-left: #{$space-size};
+        padding-right: #{$space-size};
+      }
+      .py-#{$name}-#{$space-name} {
+        padding-top: #{$space-size};
+        padding-bottom: #{$space-size};
+      }
+      .pt-#{$name}-#{$space-name} {
+        padding-top: #{$space-size};
+      }
+      .pr-#{$name}-#{$space-name} {
+        padding-right: #{$space-size};
+      }
+      .pb-#{$name}-#{$space-name} {
+        padding-bottom: #{$space-size};
+      }
+      .pl-#{$name}-#{$space-name} {
+        padding-left: #{$space-size};
+      }
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 rem(20);
+  margin: 0 auto;
+  @each $name, $breakpoint-size in $breakpoints-up {
+    @include breakpoint($name) {
+      max-width: #{$breakpoint-size};
+    }
+  }
+}
+
+$grid-size: 12 !default;
+
+.row {
+  display: grid;
+  grid-template-columns: repeat($grid-size, 1fr);
+  & > * {
+    grid-column: span $grid-size;
+  }
+}
+
+@for $i from 1 through $grid-size {
+  .col-#{$i} {
+    grid-column: auto / span #{$i};
+  }
+  .col-offset-#{$i} {
+    grid-column-start: #{$i};
+  }
+}
+
+@each $name, $breakpoint-size in $breakpoints-up {
+  @include breakpoint($name) {
+    @for $i from 1 through $grid-size {
+      .col-#{$name}-#{$i} {
+        grid-column: auto / span #{$i};
+      }
+      .col-offset-#{$name}-#{$i} {
+        grid-column-start: #{$i};
+      }
+    }
+  }
+}
+
+$gaps: (
+  0: '0',
+  1: '0.25rem',
+  2: '0.5rem',
+  3: '0.75rem',
+  4: '1rem',
+  5: '1.25rem',
+  6: '1.5rem',
+  7: '1.75rem',
+  8: '2rem',
+);
+
+@each $gap-name, $gap-size in $gaps {
+  .g-#{$gap-name} {
+    gap: #{$gap-size};
+  }
+  .gx-#{$gap-name} {
+    column-gap: #{$gap-size};
+  }
+  .gy-#{$gap-name} {
+    row-gap: #{$gap-size};
+  }
+}
+
+@each $name, $breakpoint-size in $breakpoints-up {
+  @include breakpoint($name) {
+    @each $gap-name, $gap-size in $gaps {
+      .g-#{$name}-#{$gap-name} {
+        gap: #{$gap-size};
+      }
+      .gx-#{$name}-#{$gap-name} {
+        column-gap: #{$gap-size};
+      }
+      .gy-#{$name}-#{$gap-name} {
+        row-gap: #{$gap-size};
+      }
+    }
+  }
+}
