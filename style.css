@@ -1,0 +1,52 @@
+body,
+html {
+  min-height: 100%;
+  display: grid;
+  font-family: sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.row > * {
+  background-color: lightsteelblue;
+  color: midnightblue;
+  letter-spacing: 1px;
+}
+
+/* .row > .col > p {
+  background-color: lightsteelblue;
+  color: midnightblue;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+} */
