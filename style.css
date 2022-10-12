@@ -46,7 +46,18 @@ h2 {
   text-align: center;
 }
 
-.row > * {
+.row > *,
+.row-sm > *,
+.row-md > *,
+.row-lg > *,
+.row-xl > *,
+.row-xxl > *,
+.row-autoflow > *,
+.row-autoflow-sm > *,
+.row-autoflow-md > *,
+.row-autoflow-lg > *,
+.row-autoflow-xl > *,
+.row-autoflow-xxl > * {
   background-color: lightsteelblue;
   color: midnightblue;
   letter-spacing: 1px;
