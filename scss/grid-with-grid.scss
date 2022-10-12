@@ -7,9 +7,9 @@
 $breakpoints-up: (
   'sm': '36rem',
   'md': '48rem',
-  'lg': '62rem',
-  'xl': '75rem',
-  'xxl': '85rem',
+  'lg': '64rem',
+  'xl': '80rem',
+  'xxl': '90rem',
 );
 
 @mixin breakpoint($size) {
@@ -153,6 +153,28 @@ $grid-size: 12 !default;
   grid-template-columns: repeat($grid-size, 1fr);
   & > * {
     grid-column: auto / span $grid-size;
+  }
+  &-autoflow {
+    display: grid;
+    grid-template-columns: unset;
+    grid-auto-flow: column;
+  }
+}
+
+@each $name, $breakpoint-size in $breakpoints-up {
+  @include breakpoint($name) {
+    .row-#{$name} {
+      display: grid;
+      grid-template-columns: repeat($grid-size, 1fr);
+      & > * {
+        grid-column: auto / span $grid-size;
+      }
+    }
+    .row-autoflow-#{$name} {
+      display: grid;
+      grid-template-columns: unset;
+      grid-auto-flow: column;
+    }
   }
 }
 
