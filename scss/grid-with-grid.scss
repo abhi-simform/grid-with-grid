@@ -18,14 +18,6 @@ $breakpoints-up: (
   }
 }
 
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 $spaces: (
   0: '0',
   1: '0.25rem',
@@ -159,11 +151,8 @@ $grid-size: 12 !default;
 .row {
   display: grid;
   grid-template-columns: repeat($grid-size, 1fr);
-  &.autoflow {
-    grid-template-columns: unset;
-    grid-auto-flow: column;
-    max-width: 100%;
-    overflow: auto;
+  & > * {
+    grid-column: auto / span $grid-size;
   }
 }
 
@@ -171,20 +160,32 @@ $grid-size: 12 !default;
   .col-#{$i} {
     grid-column: auto / span #{$i};
   }
+}
+
+@for $i from 0 through ($grid-size - 1) {
   .col-offset-#{$i} {
-    grid-column-start: #{$i};
+    grid-column-start: #{$i + 1};
   }
+}
+
+.col-offset-none {
+  grid-column-start: auto;
 }
 
 @each $name, $breakpoint-size in $breakpoints-up {
   @include breakpoint($name) {
     @for $i from 1 through $grid-size {
       .col-#{$name}-#{$i} {
-        grid-column: auto / span #{$i};
+        grid-column-end: span #{$i};
       }
-      .col-offset-#{$name}-#{$i} {
-        grid-column-start: #{$i};
+    }
+    @for $j from 0 through ($grid-size - 1) {
+      .col-offset-#{$name}-#{$j} {
+        grid-column-start: #{$j + 1};
       }
+    }
+    .col-offset-#{$name}-none {
+      grid-column-start: auto;
     }
   }
 }
