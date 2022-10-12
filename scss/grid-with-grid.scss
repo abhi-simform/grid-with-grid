@@ -81,53 +81,53 @@ $spaces: (
   }
 }
 
-@each $name, $breakpoint-size in $breakpoints-up {
-  @include breakpoint($name) {
+@each $breakpoint-name, $breakpoint-size in $breakpoints-up {
+  @include breakpoint($breakpoint-name) {
     @each $space-name, $space-size in $spaces {
-      .m-#{$name}-#{$space-name} {
+      .m-#{$breakpoint-name}-#{$space-name} {
         margin: #{$space-size};
       }
-      .mx-#{$name}-#{$space-name} {
+      .mx-#{$breakpoint-name}-#{$space-name} {
         margin-left: #{$space-size};
         margin-right: #{$space-size};
       }
-      .my-#{$name}-#{$space-name} {
+      .my-#{$breakpoint-name}-#{$space-name} {
         margin-top: #{$space-size};
         margin-bottom: #{$space-size};
       }
-      .mt-#{$name}-#{$space-name} {
+      .mt-#{$breakpoint-name}-#{$space-name} {
         margin-top: #{$space-size};
       }
-      .mr-#{$name}-#{$space-name} {
+      .mr-#{$breakpoint-name}-#{$space-name} {
         margin-right: #{$space-size};
       }
-      .mb-#{$name}-#{$space-name} {
+      .mb-#{$breakpoint-name}-#{$space-name} {
         margin-bottom: #{$space-size};
       }
-      .ml-#{$name}-#{$space-name} {
+      .ml-#{$breakpoint-name}-#{$space-name} {
         margin-left: #{$space-size};
       }
-      .p-#{$name}-#{$space-name} {
+      .p-#{$breakpoint-name}-#{$space-name} {
         padding: #{$space-size};
       }
-      .px-#{$name}-#{$space-name} {
+      .px-#{$breakpoint-name}-#{$space-name} {
         padding-left: #{$space-size};
         padding-right: #{$space-size};
       }
-      .py-#{$name}-#{$space-name} {
+      .py-#{$breakpoint-name}-#{$space-name} {
         padding-top: #{$space-size};
         padding-bottom: #{$space-size};
       }
-      .pt-#{$name}-#{$space-name} {
+      .pt-#{$breakpoint-name}-#{$space-name} {
         padding-top: #{$space-size};
       }
-      .pr-#{$name}-#{$space-name} {
+      .pr-#{$breakpoint-name}-#{$space-name} {
         padding-right: #{$space-size};
       }
-      .pb-#{$name}-#{$space-name} {
+      .pb-#{$breakpoint-name}-#{$space-name} {
         padding-bottom: #{$space-size};
       }
-      .pl-#{$name}-#{$space-name} {
+      .pl-#{$breakpoint-name}-#{$space-name} {
         padding-left: #{$space-size};
       }
     }
@@ -139,8 +139,8 @@ $spaces: (
   max-width: 100%;
   padding: 0 rem(20);
   margin: 0 auto;
-  @each $name, $breakpoint-size in $breakpoints-up {
-    @include breakpoint($name) {
+  @each $breakpoint-name, $breakpoint-size in $breakpoints-up {
+    @include breakpoint($breakpoint-name) {
       max-width: #{$breakpoint-size};
     }
   }
@@ -161,16 +161,16 @@ $grid-size: 12 !default;
   }
 }
 
-@each $name, $breakpoint-size in $breakpoints-up {
-  @include breakpoint($name) {
-    .row-#{$name} {
+@each $breakpoint-name, $breakpoint-size in $breakpoints-up {
+  @include breakpoint($breakpoint-name) {
+    .row-#{$breakpoint-name} {
       display: grid;
       grid-template-columns: repeat($grid-size, 1fr);
       & > * {
         grid-column: auto / span $grid-size;
       }
     }
-    .row-autoflow-#{$name} {
+    .row-autoflow-#{$breakpoint-name} {
       display: grid;
       grid-template-columns: unset;
       grid-auto-flow: column;
@@ -204,28 +204,28 @@ $grid-size: 12 !default;
   grid-row-start: auto;
 }
 
-@each $name, $breakpoint-size in $breakpoints-up {
-  @include breakpoint($name) {
+@each $breakpoint-name, $breakpoint-size in $breakpoints-up {
+  @include breakpoint($breakpoint-name) {
     @for $i from 1 through $grid-size {
-      .col-#{$name}-#{$i} {
+      .col-#{$breakpoint-name}-#{$i} {
         grid-column-end: span #{$i};
       }
-      .row-#{$name}-#{$i} {
+      .row-#{$breakpoint-name}-#{$i} {
         grid-row-end: span #{$i};
       }
     }
     @for $j from 0 through ($grid-size - 1) {
-      .col-offset-#{$name}-#{$j} {
+      .col-offset-#{$breakpoint-name}-#{$j} {
         grid-column-start: #{$j + 1};
       }
-      .row-offset-#{$name}-#{$j} {
+      .row-offset-#{$breakpoint-name}-#{$j} {
         grid-row-start: #{$j + 1};
       }
     }
-    .col-offset-#{$name}-none {
+    .col-offset-#{$breakpoint-name}-none {
       grid-column-start: auto;
     }
-    .row-offset-#{$name}-none {
+    .row-offset-#{$breakpoint-name}-none {
       grid-row-start: auto;
     }
   }
@@ -255,17 +255,71 @@ $gaps: (
   }
 }
 
-@each $name, $breakpoint-size in $breakpoints-up {
-  @include breakpoint($name) {
+@each $breakpoint-name, $breakpoint-size in $breakpoints-up {
+  @include breakpoint($breakpoint-name) {
     @each $gap-name, $gap-size in $gaps {
-      .g-#{$name}-#{$gap-name} {
+      .g-#{$breakpoint-name}-#{$gap-name} {
         gap: #{$gap-size};
       }
-      .gx-#{$name}-#{$gap-name} {
+      .gx-#{$breakpoint-name}-#{$gap-name} {
         column-gap: #{$gap-size};
       }
-      .gy-#{$name}-#{$gap-name} {
+      .gy-#{$breakpoint-name}-#{$gap-name} {
         row-gap: #{$gap-size};
+      }
+    }
+  }
+}
+
+$align-items-values: 'center', 'start', 'end', 'stretch', 'baseline';
+$align-content-values: 'center', 'space-between', 'space-around', 'space-evenly', 'stretch';
+$justify-items-values: 'center', 'start', 'end', 'stretch';
+$justify-content-values: 'center', 'start', 'end', 'space-between', 'space-around', 'space-evenly';
+
+@each $align-items-value in $align-items-values {
+  .align-items-#{$align-items-value} {
+    align-items: #{$align-items-value};
+  }
+}
+
+@each $align-content-value in $align-content-values {
+  .align-content-#{$align-content-value} {
+    align-content: #{$align-content-value};
+  }
+}
+
+@each $justify-items-value in $justify-items-values {
+  .justify-items-#{$justify-items-value} {
+    justify-items: #{$justify-items-value};
+  }
+}
+
+@each $justify-content-value in $justify-content-values {
+  .justify-content-#{$justify-content-value} {
+    justify-content: #{$justify-content-value};
+  }
+}
+
+@each $breakpoint-name, $breakpoint-size in $breakpoints-up {
+  @include breakpoint($breakpoint-name) {
+    @each $align-items-value in $align-items-values {
+      .align-items-#{$breakpoint-name}-#{$align-items-value} {
+        align-items: #{$align-items-value};
+      }
+    }
+    @each $align-content-value in $align-content-values {
+      .align-content-#{$breakpoint-name}-#{$align-content-value} {
+        align-content: #{$align-content-value};
+      }
+    }
+    @each $justify-items-value in $justify-items-values {
+      .justify-items-#{$breakpoint-name}-#{$justify-items-value} {
+        justify-items: #{$justify-items-value};
+      }
+    }
+    @each $justify-content-value in $justify-content-values {
+      .justify-content-#{$breakpoint-name}-#{$justify-content-value} {
+        justify-content: #{$justify-content-value};
       }
     }
   }
