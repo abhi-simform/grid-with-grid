@@ -182,16 +182,26 @@ $grid-size: 12 !default;
   .col-#{$i} {
     grid-column: auto / span #{$i};
   }
+  .row-#{$i} {
+    grid-row: auto / span #{$i};
+  }
 }
 
 @for $i from 0 through ($grid-size - 1) {
   .col-offset-#{$i} {
     grid-column-start: #{$i + 1};
   }
+  .row-offset-#{$i} {
+    grid-row-start: #{$i + 1};
+  }
 }
 
 .col-offset-none {
   grid-column-start: auto;
+}
+
+.row-offset-none {
+  grid-row-start: auto;
 }
 
 @each $name, $breakpoint-size in $breakpoints-up {
@@ -200,14 +210,23 @@ $grid-size: 12 !default;
       .col-#{$name}-#{$i} {
         grid-column-end: span #{$i};
       }
+      .row-#{$name}-#{$i} {
+        grid-row-end: span #{$i};
+      }
     }
     @for $j from 0 through ($grid-size - 1) {
       .col-offset-#{$name}-#{$j} {
         grid-column-start: #{$j + 1};
       }
+      .row-offset-#{$name}-#{$j} {
+        grid-row-start: #{$j + 1};
+      }
     }
     .col-offset-#{$name}-none {
       grid-column-start: auto;
+    }
+    .row-offset-#{$name}-none {
+      grid-row-start: auto;
     }
   }
 }
