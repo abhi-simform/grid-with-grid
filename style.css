@@ -13,6 +13,7 @@ html {
   font-family: sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  padding: 0 0 5rem 0;
 }
 
 img,
@@ -41,9 +42,22 @@ h6 {
   overflow-wrap: break-word;
 }
 
-h2 {
-  font-size: 2rem;
+h1 {
+  font-size: 2.5rem;
   text-align: center;
+  color: midnightblue;
+}
+
+h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  color: midnightblue;
+}
+
+.examples {
+  text-align: center;
+  font-weight: 500;
+  color: midnightblue;
 }
 
 .row > *,
@@ -60,5 +74,6 @@ h2 {
 .row-autoflow-xxl > * {
   background-color: lightsteelblue;
   color: midnightblue;
-  letter-spacing: 1px;
+  letter-spacing: 0.05rem;
+  border-radius: 0.25rem;
 }
