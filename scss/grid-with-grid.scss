@@ -18,6 +18,24 @@ $breakpoints-up: (
   }
 }
 
+$text-alignments: 'start', 'end', 'left', 'right', 'center', 'justify';
+
+@each $text-alignment in $text-alignments {
+  .text-#{$text-alignment} {
+    text-align: #{$text-alignment};
+  }
+}
+
+@each $breakpoint-name, $breakpoint-size in $breakpoints-up {
+  @include breakpoint($breakpoint-name) {
+    @each $text-alignment in $text-alignments {
+      .text-#{$breakpoint-name}-#{$text-alignment} {
+        text-align: #{$text-alignment};
+      }
+    }
+  }
+}
+
 $spaces: (
   0: '0',
   1: '0.25rem',
