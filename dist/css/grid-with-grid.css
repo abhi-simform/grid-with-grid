@@ -1,3 +1,127 @@
+.text-start {
+  text-align: start;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+@media (min-width: 36rem) {
+  .text-sm-start {
+    text-align: start;
+  }
+  .text-sm-end {
+    text-align: end;
+  }
+  .text-sm-left {
+    text-align: left;
+  }
+  .text-sm-right {
+    text-align: right;
+  }
+  .text-sm-center {
+    text-align: center;
+  }
+  .text-sm-justify {
+    text-align: justify;
+  }
+}
+@media (min-width: 48rem) {
+  .text-md-start {
+    text-align: start;
+  }
+  .text-md-end {
+    text-align: end;
+  }
+  .text-md-left {
+    text-align: left;
+  }
+  .text-md-right {
+    text-align: right;
+  }
+  .text-md-center {
+    text-align: center;
+  }
+  .text-md-justify {
+    text-align: justify;
+  }
+}
+@media (min-width: 64rem) {
+  .text-lg-start {
+    text-align: start;
+  }
+  .text-lg-end {
+    text-align: end;
+  }
+  .text-lg-left {
+    text-align: left;
+  }
+  .text-lg-right {
+    text-align: right;
+  }
+  .text-lg-center {
+    text-align: center;
+  }
+  .text-lg-justify {
+    text-align: justify;
+  }
+}
+@media (min-width: 80rem) {
+  .text-xl-start {
+    text-align: start;
+  }
+  .text-xl-end {
+    text-align: end;
+  }
+  .text-xl-left {
+    text-align: left;
+  }
+  .text-xl-right {
+    text-align: right;
+  }
+  .text-xl-center {
+    text-align: center;
+  }
+  .text-xl-justify {
+    text-align: justify;
+  }
+}
+@media (min-width: 90rem) {
+  .text-xxl-start {
+    text-align: start;
+  }
+  .text-xxl-end {
+    text-align: end;
+  }
+  .text-xxl-left {
+    text-align: left;
+  }
+  .text-xxl-right {
+    text-align: right;
+  }
+  .text-xxl-center {
+    text-align: center;
+  }
+  .text-xxl-justify {
+    text-align: justify;
+  }
+}
 .p-0 {
   padding: 0;
 }
