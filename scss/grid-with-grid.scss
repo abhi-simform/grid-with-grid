@@ -1,9 +1,3 @@
-@use 'sass:math';
-
-@function rem($value) {
-  @return #{math.div($value, 16)}rem;
-}
-
 $breakpoints-up: (
   'sm': '36rem',
   'md': '48rem',
@@ -165,7 +159,7 @@ $space-combinations: 'x', 'y';
 .container {
   width: 100%;
   max-width: 100%;
-  padding: 0 rem(20);
+  padding: 0 1.125rem;
   margin: 0 auto;
   @each $breakpoint-name, $breakpoint-size in $breakpoints-up {
     @include breakpoint($breakpoint-name) {

@@ -3451,7 +3451,7 @@
 .container {
   width: 100%;
   max-width: 100%;
-  padding: 0 1.25rem;
+  padding: 0 1.125rem;
   margin: 0 auto;
 }
 @media (min-width: 36rem) {
