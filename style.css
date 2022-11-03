@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada&family=Space+Grotesk:wght@700&display=swap');
+
 *,
 *::after,
 *::before {
@@ -10,10 +12,14 @@ body,
 html {
   min-height: 100%;
   display: grid;
-  font-family: sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   padding: 0 0 5rem 0;
+}
+
+body {
+  font-family: 'Radio Canada', sans-serif;
+  font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
 }
 
 img,
@@ -42,14 +48,21 @@ h6 {
   overflow-wrap: break-word;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
 h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   text-align: center;
   color: midnightblue;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
   color: midnightblue;
 }
@@ -74,6 +87,5 @@ h2 {
 .row-autoflow-xxl > * {
   background-color: lightsteelblue;
   color: midnightblue;
-  letter-spacing: 0.05rem;
   border-radius: 0.25rem;
 }
