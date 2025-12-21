@@ -1,6 +1,6 @@
 {
   "name": "grid-with-grid",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A robust, responsive grid system library built using native CSS Grid Layout.",
   "author": "Abhishek Sawant",
   "main": "dist/css/grid-with-grid.css",
@@ -12,7 +12,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/grid-with-grid.git"
+    "url": "https://github.com/abhi-sawant/grid-with-grid.git",
+    "homepage": "https://abhi-simform.github.io/grid-with-grid/"
   },
   "keywords": [
     "css",
