@@ -1,16 +1,33 @@
 {
   "name": "grid-with-grid",
   "version": "1.1.1",
-  "description": "A grid system setup using CSS Grid",
+  "description": "A robust, responsive grid system library built using native CSS Grid Layout.",
   "author": "Abhishek Sawant",
-  "main": "index.html",
+  "main": "dist/css/grid-with-grid.css",
+  "style": "dist/css/grid-with-grid.css",
+  "sass": "scss/grid-with-grid.scss",
+  "files": [
+    "dist",
+    "scss"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/grid-with-grid.git"
+  },
+  "keywords": [
+    "css",
+    "grid",
+    "css-grid",
+    "responsive",
+    "framework",
+    "utility-classes",
+    "sass"
+  ],
+  "license": "MIT",
   "scripts": {
     "compile-sass": "sass scss/grid-with-grid.scss:dist/css/grid-with-grid.css",
     "build-sass": "sass scss/grid-with-grid.scss:dist/css/grid-with-grid.css --no-source-map",
     "watch-sass": "onchange scss/ -- npm run compile-sass",
-    "compile-js": "terser js/script.js --compress --mangle --output dist/js/script.js --source-map \"root='js',url='script.js.map'\" ",
-    "build-js": "terser js/script.js --compress --mangle --output dist/js/script.js",
-    "watch-js": "onchange js/script.js -- npm run compile-js",
     "post-prefix": "postcss dist/css/grid-with-grid.css -u autoprefixer -r --no-map",
     "post-nano": "postcss dist/css/grid-with-grid.css -u cssnano -r --no-map",
     "watch": "npm-run-all --parallel watch-*",
@@ -18,7 +35,8 @@
     "post": "postcss dist/css/grid-with-grid.css -u autoprefixer -u cssnano -r --no-map",
     "serve": "browser-sync start --server ./ --files ./",
     "start": "npm-run-all compile --parallel watch serve",
-    "build": "npm-run-all build-* post del-map",
+    "build": "npm-run-all build-sass post del-map",
+    "prepublishOnly": "npm run build",
     "del-map": "del-cli dist/**/*.map"
   },
   "dependencies": {
